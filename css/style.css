@@ -1,6 +1,14 @@
 
 
 
+
+
+.box-image-choose {
+    width: 100px;
+    height: 100px;
+    object-fit:fill;
+    object-position:100% 100%;
+  }
 .container {
     display: flex; /* Magic starts here, turning your container into a flex container */
     justify-content: center; /* This centers the child horizontally */
@@ -12,18 +20,18 @@
     height: 50%; /* And any height */
   }
 
-.hidden {
-    visibility: hidden;
-  }
-  
 
 .title {
     text-align: center;
    margin-top: 50px;
    margin-bottom: 50px;
   }
+/*  
+  .hidden {
 
-
+    display:none
+  } */
+   
 
 * {
     box-sizing: border-box;
@@ -215,7 +223,16 @@
       flex-basis: calc(25% - 18px);
     }
   }
-  
+
+
+
+
+#caseInfo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
 #stars {
     width: 1px;
     height: 1px;
