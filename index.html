@@ -9,59 +9,72 @@
     <script src="./js/app.js" defer></script>
 </head>
 <body>
-    <div class="hidden">
+
+
+
+    
+    <div id="game">
         <h1 class="title">WHO IS THE IMPOSTER?</h1>
         <h3 id="caseDescription"></h3>
         <div class="wrap">
             <div class="box" id="officerBox">
                 <div class="box-top">
-                    <img class="box-image" src="characters/police.png" alt="The Police Man">
+                    <img id="officerimg" class="box-image" src="characters/officer.png" alt="The Police Man">
                     <div class="title-flex">
                         <h3 class="box-title">Officer</h3>
                         <p class="user-follow-info">Noah</p>
                     </div>
                     <p class="description" id="officerDescription"></p>
                 </div>
-                <a href="#" class="button">ELIMINATE</a>
+                <button id="officer" class="button">ELIMINATE</button>
             </div>
             <div class="box" id="artistBox">
                 <div class="box-top">
-                    <img class="box-image" src="characters/artest.png" alt="The Artist">
+                    <img id="artestimg" class="box-image" src="characters/artest.png" alt="The Artist">
                     <div class="title-flex">
                         <h3 class="box-title">Artist</h3>
                         <p class="user-follow-info">Reem</p>
                     </div>
                     <p class="description" id="artistDescription"></p>
                 </div>
-                <a href="#" class="button">ELIMINATE</a>
+                
+                <button id="artest" class="button">ELIMINATE</button>
+               
             </div>
             <div class="box" id="chefBox">
                 <div class="box-top">
-                    <img class="box-image" src="characters/chef.png" alt="The Chef">
+                    <img id="chefimg" class="box-image" src="characters/chef.png" alt="The Chef">
                     <div class="title-flex">
                         <h3 class="box-title">Chef</h3>
                         <p class="user-follow-info">Maryam</p>
                     </div>
                     <p class="description" id="chefDescription"></p>
                 </div>
-                <a href="#" class="button">ELIMINATE</a>
+                <button id="chef" class="button">ELIMINATE</button>
             </div>
             <div class="box" id="musicianBox">
                 <div class="box-top">
-                    <img class="box-image" src="characters/musician.png" alt="The Musician">
+                    <img id="musicianimg" class="box-image" src="characters/musician.png" alt="The Musician">
                     <div class="title-flex">
                         <h3 class="box-title">Musician</h3>
                         <p class="user-follow-info">Ahmed</p>
                     </div>
                     <p class="description" id="musicianDescription"></p>
                 </div>
-                <a href="#" class="button">ELIMINATE</a>
+                <button id="musician" class="button">ELIMINATE</button>
             </div>
         </div>
         
-        <button id="newCase">New Case</button>
+        <button class="button" id="newCase">New Case</button>
        
     </div>
     
+
+
+
+
+        
+
+
 </body>
 </html>

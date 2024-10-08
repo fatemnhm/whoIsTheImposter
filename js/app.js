@@ -1,13 +1,23 @@
+
+
+let selectedCase;
+let eliminateSusName;
+let eliminateSusIndex;
+let counter=0;
+let disableButton;
+let imgNotGuilty;
+
+
 // Define the characters array
 const characters = [
-    { index: 0, name: "Police Officer" },
-    { index: 1, name: "Artist" },
-    { index: 2, name: "Chef" },
-   
-    { index: 3, name: "Musician"}
+    { index: 0, name: "officer" },
+    { index: 1, name: "artist" },
+    { index: 2, name: "chef" },
+   { index: 3, name: "musician"}
    
    
 ];
+
 
 // Define the clues array
 const clues = [
@@ -35,156 +45,153 @@ const clues = [
     ]
 ];
 
-// Define the cases array
+
 const cases = [
     {
         title: "Case 1",
         description: "During an exclusive dinner event, the renowned food critic was discovered lifeless at their table. Tensions had been rising all evening, especially between the Critic and one individual who had something to prove. Witnesses noted heated exchanges leading up to the incident.",
-        murderer: characters[0].name,  
+        murderer: characters[2].index,  
         suspects: [
             {
-                role: characters[0].name,
-                motive: "A harsh review called the Chef’s dishes 'bland and forgettable,' putting their reputation at risk.",
-                alibi: "The Chef says they were in the kitchen making a special dessert for the Critic during the meal, but the kitchen was closed off, so no one can confirm this.",
-                susBehavior: "Witnesses saw the Chef arguing with the Critic about the food quality before the meal.",
-                murder: true 
-            },
-            {
-                role: characters[1].name,
-                motive: "The Critic overlooked the Musician’s talent, focusing only on the Chef and Artist, leaving the Musician feeling ignored.",
-                alibi: "The Musician says they were performing in the Cafeteria when the Critic was poisoned and claims several guests can confirm they were there during dinner.",
-                susBehavior: "The Musician seemed distracted during their performance and was often seen glancing at the Critic.",
+                role: characters[0].name, // Officer
+                motive: "The Critic was trying to bribe the Officer for a fake security report, threatening the Officer's integrity.",
+                alibi: "The Officer had access to the kitchen and could have easily tampered with the food.",
+                susBehavior: "The Officer was seen near the kitchen before dinner, and their keycard was swiped in the Storage area shortly before the meal.",
                 murder: false 
             },
             {
-                role: characters[2].name,
+                role: characters[1].name, // Artist
                 motive: "The Critic's lukewarm review of the Artist's latest work left them feeling embarrassed.",
                 alibi: "The Artist claims they were mingling with guests and discussing their artwork when the poisoning occurred, but no one specifically remembers seeing them then.",
                 susBehavior: "The Artist appeared particularly upset after the Critic made a negative remark about their work.",
                 murder: false
             },
             {
-                role: characters[3].name,
-                motive: "The Critic was trying to bribe the Officer for a fake security report, threatening the Officer's integrity.",
-                alibi: "The Officer had access to the kitchen and could have easily tampered with the food.",
-                susBehavior: "The Officer was seen near the kitchen before dinner, and their keycard was swiped in the Storage area shortly before the meal.",
+                role: characters[2].name, // Chef
+                motive: "A harsh review called the Chef’s dishes 'bland and forgettable,' putting their reputation at risk.",
+                alibi: "The Chef says they were in the kitchen making a special dessert for the Critic during the meal, but the kitchen was closed off, so no one can confirm this.",
+                susBehavior: "Witnesses saw the Chef arguing with the Critic about the food quality before the meal.",
+                murder: true 
+            },
+            {
+                role: characters[3].name, // Musician
+                motive: "The Critic overlooked the Musician’s talent, focusing only on the Chef and Artist, leaving the Musician feeling ignored.",
+                alibi: "The Musician says they were performing in the Cafeteria when the Critic was poisoned and claims several guests can confirm they were there during dinner.",
+                susBehavior: "The Musician seemed distracted during their performance and was often seen glancing at the Critic.",
                 murder: false 
             }
         ],
-        clues: clues[0] 
+        clues: clues[0]
     },
     {
         title: "Case 2",
-    description: "During a gala event, the atmosphere turned tense when it was revealed that a police officer had been seen arguing with his wife, the renowned artist. Moments later, screams filled the room as she was found stabbed.",
-    murderer: characters[3].name,  
-    suspects: [
-        {
-            role: characters[0].name,
-            motive: "The Chef felt sidelined during the event, leading to resentment towards the Officer's public persona.",
-            alibi: "The Chef claims they were preparing food for the guests at the time of the incident.",
-            susBehavior: "No suspicious behavior reported.",
-            murder: false 
-        },
-        {
-            role: characters[1].name,
-            motive: "The Musician witnessed the Officer's frequent arguments with his wife and felt it was time to intervene.",
-            alibi: "The Musician states they were performing when the incident occurred.",
-            susBehavior: "They seemed agitated during their performance, possibly due to the ongoing argument.",
-            murder: false 
-        },
-        {
-            role: characters[2].name,
-            motive: "The Artist was known to have had a tumultuous relationship with the Officer, leading to explosive arguments.",
-            alibi: "The Artist claims they were chatting with guests in a different area when the stabbing occurred.",
-            susBehavior: "Witnesses report the Artist seemed anxious and kept checking on the Officer.",
-            murder: false 
-        },
-        {
-            role: characters[3].name,
-            motive: "The Officer's jealousy over his wife's success drove him to a breaking point.",
-            alibi: "The Officer claims he was in the back office at the time of the incident.",
-            susBehavior: "Witnesses saw the Officer and the Artist arguing just moments before the incident.",
-            murder: true 
-        }
-    ],
-        
-        clues: clues[1] 
-     }, {
+        description: "During a gala event, the atmosphere turned tense when it was revealed that a police officer had been seen arguing with his wife, the renowned artist. Moments later, screams filled the room as she was found stabbed.",
+        murderer: characters[0].index,  
+        suspects: [
+            {
+                role: characters[0].name, // Officer
+                motive: "The Officer's jealousy over his wife's success drove him to a breaking point.",
+                alibi: "The Officer claims he was in the back office at the time of the incident.",
+                susBehavior: "Witnesses saw the Officer and the Artist arguing just moments before the incident.",
+                murder: true 
+            },
+            {
+                role: characters[1].name, // Artist
+                motive: "The Artist was known to have had a tumultuous relationship with the Officer, leading to explosive arguments.",
+                alibi: "The Artist claims they were chatting with guests in a different area when the stabbing occurred.",
+                susBehavior: "Witnesses report the Artist seemed anxious and kept checking on the Officer.",
+                murder: false 
+            },
+            {
+                role: characters[2].name, // Chef
+                motive: "The Chef felt sidelined during the event, leading to resentment towards the Officer's public persona.",
+                alibi: "The Chef claims they were preparing food for the guests at the time of the incident.",
+                susBehavior: "No suspicious behavior reported.",
+                murder: false 
+            },
+            {
+                role: characters[3].name, // Musician
+                motive: "The Musician witnessed the Officer's frequent arguments with his wife and felt it was time to intervene.",
+                alibi: "The Musician states they were performing when the incident occurred.",
+                susBehavior: "They seemed agitated during their performance, possibly due to the ongoing argument.",
+                murder: false 
+            }
+        ],
+        clues: clues[1]
+    },
+    {
         title: "Case 3: The Officer's Betrayal",
         description: "During a gala event, the atmosphere turned tense when it was revealed that a police officer had been seen arguing with his wife, the renowned artist. Moments later, screams filled the room as she was found stabbed. Jealousy and betrayal clouded the evening, raising questions about trust within their marriage.",
-        murderer: characters[3].name,  
-       suspects: [
-        {
-            role: characters[0].name,
-            motive: "The Chef felt sidelined during the event, leading to resentment towards the Officer's public persona.",
-            alibi: "The Chef claims they were preparing food for the guests at the time of the incident.",
-            susBehavior: "No suspicious behavior reported.",
-            murder: false 
-        },
-        {
-            role: characters[1].name,
-            motive: "The Musician witnessed the Officer's frequent arguments with his wife and felt it was time to intervene.",
-            alibi: "The Musician states they were performing when the incident occurred.",
-            susBehavior: "They seemed agitated during their performance, possibly due to the ongoing argument.",
-            murder: false 
-        },
-        {
-            role: characters[2].name,
-            motive: "The Artist was known to have had a tumultuous relationship with the Officer, leading to explosive arguments.",
-            alibi: "The Artist claims they were chatting with guests in a different area when the stabbing occurred.",
-            susBehavior: "Witnesses report the Artist seemed anxious and kept checking on the Officer.",
-            murder: false 
-        },
-        {
-            role: characters[3].name,
-            motive: "The Officer's jealousy over his wife's success drove him to a breaking point.",
-            alibi: "The Officer claims he was in the back office at the time of the incident.",
-            susBehavior: "Witnesses saw the Officer and the Artist arguing just moments before the incident.",
-            murder: true 
-        } ],
-        clues: clues[2] 
+        murderer: characters[3].index,  
+        suspects: [
+            {
+                role: characters[0].name, // Officer
+                motive: "The Officer's jealousy over his wife's success drove him to a breaking point.",
+                alibi: "The Officer claims he was in the back office at the time of the incident.",
+                susBehavior: "Witnesses saw the Officer and the Artist arguing just moments before the incident.",
+                murder: true 
+            },
+            {
+                role: characters[1].name, // Artist
+                motive: "The Artist was known to have had a tumultuous relationship with the Officer, leading to explosive arguments.",
+                alibi: "The Artist claims they were chatting with guests in a different area when the stabbing occurred.",
+                susBehavior: "Witnesses report the Artist seemed anxious and kept checking on the Officer.",
+                murder: false 
+            },
+            {
+                role: characters[2].name, // Chef
+                motive: "The Chef felt sidelined during the event, leading to resentment towards the Officer's public persona.",
+                alibi: "The Chef claims they were preparing food for the guests at the time of the incident.",
+                susBehavior: "No suspicious behavior reported.",
+                murder: false 
+            },
+            {
+                role: characters[3].name, // Musician
+                motive: "The Musician witnessed the Officer's frequent arguments with his wife and felt it was time to intervene.",
+                alibi: "The Musician states they were performing when the incident occurred.",
+                susBehavior: "They seemed agitated during their performance, possibly due to the ongoing argument.",
+                murder: false 
+            }
+        ],
+        clues: clues[2]
     },
     {
         title: "Case 4: The Composer is dead",
         description: "At a music event, a famous composer was found dead, leaving everyone shocked and scared. Guests began to wonder who could have wanted the composer gone.",
-        murderer: characters[1].name,  // Musician is the murderer
+        murderer: characters[1].index,  
         suspects: [
             {
-                role: characters[0].name,
+                role: characters[0].name, // Officer
+                motive: "The Officer was annoyed because the composer had criticized the police in an interview.",
+                alibi: "The Officer says they were patrolling outside the venue when the murder occurred.",
+                susBehavior: "They were seen near the area where the composer was found dead.",
+                murder: false 
+            },
+            {
+                role: characters[1].name, // Artist
+                motive: "The Artist was angry after the composer made fun of their artwork.",
+                alibi: "The Artist says they were talking to guests in another room when the murder happened.",
+                susBehavior: "Witnesses noticed the Artist looking upset and frustrated during the night.",
+                murder: true 
+            },
+            {
+                role: characters[2].name, // Chef
                 motive: "The Chef was upset because the composer criticized their food choices for the event.",
                 alibi: "The Chef claims they were in the kitchen cooking when the composer was killed.",
                 susBehavior: "Witnesses reported seeing the Chef arguing with the composer about the menu.",
                 murder: false 
             },
             {
-                role: characters[1].name,
+                role: characters[3].name, // Musician
                 motive: "The Musician was jealous because the composer was getting all the attention at the event.",
                 alibi: "The Musician claims they were on stage performing when the composer was murdered.",
                 susBehavior: "They seemed angry and distracted during their performance.",
-                murder: true 
-            },
-            {
-                role: characters[2].name,
-                motive: "The Artist was angry after the composer made fun of their artwork.",
-                alibi: "The Artist says they were talking to guests in another room when the murder happened.",
-                susBehavior: "Witnesses noticed the Artist looking upset and frustrated during the night.",
-                murder: false 
-            },
-            {
-                role: characters[3].name,
-                motive: "The Officer was annoyed because the composer had criticized the police in an interview.",
-                alibi: "The Officer says they were patrolling outside the venue when the murder occurred.",
-                susBehavior: "They were seen near the area where the composer was found dead.",
                 murder: false 
             }
-        
         ],
-        clues: clues[3] 
+        clues: clues[3]
     }
 ];
-
-
-
 
 
 
@@ -193,13 +200,21 @@ const cases = [
 // Random case
 function randomCase() {
     const randomIndex = Math.floor(Math.random() * cases.length);
+    
     return cases[randomIndex];
 }
 
+
+
+
+function getCase(){
+     selectedCase= randomCase();
+
+}
 // print case details
 function generateCase() {
-    const selectedCase = randomCase(); 
-
+    getCase();
+    
 
     document.getElementById('caseDescription').innerText = selectedCase.description;
     
@@ -211,10 +226,10 @@ function generateCase() {
     document.getElementById('chefDescription').innerText = 
         `Motive: ${selectedCase.suspects[2].motive} \nAlibi: ${selectedCase.suspects[2].alibi} \nBehavior: ${selectedCase.suspects[2].susBehavior}`;
     document.getElementById('musicianDescription').innerText = 
-        `Motive: ${selectedCase.suspects[3].motive} \nAlibi: ${selectedCase.suspects[3].alibi} \nBehavior: ${selectedCase.suspects[3].susBehavior}
-        `;
+        `Motive: ${selectedCase.suspects[3].motive} \nAlibi: ${selectedCase.suspects[3].alibi} \nBehavior: ${selectedCase.suspects[3].susBehavior}`;
 
-    
+        
+
 }
 
 
@@ -225,11 +240,60 @@ newCaseButton=document.querySelector('#newCase');
 newCaseButton.addEventListener('click', (event) => {
 
    generateCase();
-   const selectedCase = randomCase();
+  
  });
 
 
 
+ function getsus(event) {
+    eliminateSus = event.target.id;
+    
+    switch (counter) {
+  case 0:
+
+
+  if (selectedCase !== "" && characters[selectedCase.murderer].name === eliminateSus) {
+    alert("You won!");
+    counter++;
+} else {
+    imgNotGuilty = document.getElementById(`${eliminateSus}img`);
+    imgNotGuilty.src =`characters/crew${eliminateSus}.png`;
+    disableButton = document.getElementById(`${eliminateSus}`);
+    disableButton.classList.remove('button');
+    disableButton.classList.add('buttonRed');
+    disableButton.disabled = true;  
+   disableButton.innerText = "Not guilty"; 
+    counter++;
+}
+break;
+  case 1:
+      if (selectedCase !== "" && characters[selectedCase.murderer].name === eliminateSus) {
+          alert("You won!");
+          counter++;
+      } else {
+        imgNotGuilty = document.getElementById(`${eliminateSus}img`);
+        imgNotGuilty.src =`characters/crew${eliminateSus}.png`;
+          disableButton = document.getElementById(`${eliminateSus}`);
+          disableButton.classList.remove('button');
+          disableButton.classList.add('buttonRed');
+          disableButton.innerText = "Not guilty"; 
+          counter++;
+      }
+      break;
+
+  case 2:
+     
+      alert("You lost! Try again.");
+      break;
+}
+
+
+ }
+
+
+ //function eliminate(){
+
+ //}
 
 
 
@@ -237,17 +301,15 @@ newCaseButton.addEventListener('click', (event) => {
     //generateCase();
 //}
 
-//function restart(){
-    //generateCase();
-//}
+function restart(){
+    eliminateSus="";
+    count=0;
+}
 
 //function getCase(){
 
 //}
 
-//function eliminate(){
-
-    //let murder=getCase();
 
 
 
@@ -339,3 +401,7 @@ newCaseButton.addEventListener('click', (event) => {
 
 
 /*----------- Event Listeners ----------*/
+document.querySelector('#officer').addEventListener('click', getsus);
+document.querySelector('#chef').addEventListener('click', getsus);
+document.querySelector('#musician').addEventListener('click', getsus);
+document.querySelector('#artest').addEventListener('click', getsus);
