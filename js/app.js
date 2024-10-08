@@ -36,7 +36,7 @@ const clues = [
 ];
 
 // Define the cases array
-const casesArray = [
+const cases = [
     {
         title: "Case 1",
         description: "During an exclusive dinner event, the renowned food critic was discovered lifeless at their table. Tensions had been rising all evening, especially between the Critic and one individual who had something to prove. Witnesses noted heated exchanges leading up to the incident.",
@@ -188,10 +188,12 @@ const casesArray = [
 
 
 
+
+
 // Random case
 function randomCase() {
-    const randomIndex = Math.floor(Math.random() * casesArray.length);
-    return casesArray[randomIndex];
+    const randomIndex = Math.floor(Math.random() * cases.length);
+    return cases[randomIndex];
 }
 
 // print case details
@@ -203,22 +205,27 @@ function generateCase() {
     
     // Display suspects descriptions 
     document.getElementById('officerDescription').innerText = 
-        `Motive: ${selectedCase.suspects[0].motive},\nAlibi: ${selectedCase.suspects[0].alibi}, \nBehavior: ${selectedCase.suspects[0].susBehavior}`;
+        `Motive: ${selectedCase.suspects[0].motive}\nAlibi: ${selectedCase.suspects[0].alibi} \nBehavior: ${selectedCase.suspects[0].susBehavior}`;
     document.getElementById('artistDescription').innerText = 
-        `Motive: ${selectedCase.suspects[1].motive},\nAlibi: ${selectedCase.suspects[1].alibi}, \nBehavior: ${selectedCase.suspects[1].susBehavior}`;
+        `Motive: ${selectedCase.suspects[1].motive}\nAlibi: ${selectedCase.suspects[1].alibi} \nBehavior: ${selectedCase.suspects[1].susBehavior}`;
     document.getElementById('chefDescription').innerText = 
-        `Motive: ${selectedCase.suspects[2].motive}, \nAlibi: ${selectedCase.suspects[2].alibi}, \nBehavior: ${selectedCase.suspects[2].susBehavior}`;
+        `Motive: ${selectedCase.suspects[2].motive} \nAlibi: ${selectedCase.suspects[2].alibi} \nBehavior: ${selectedCase.suspects[2].susBehavior}`;
     document.getElementById('musicianDescription').innerText = 
-        `Motive: ${selectedCase.suspects[3].motive}, \nAlibi: ${selectedCase.suspects[3].alibi}, \nBehavior: ${selectedCase.suspects[3].susBehavior}`;
+        `Motive: ${selectedCase.suspects[3].motive} \nAlibi: ${selectedCase.suspects[3].alibi} \nBehavior: ${selectedCase.suspects[3].susBehavior}
+        `;
 
     
 }
+
+
+
 
 //generate button
 newCaseButton=document.querySelector('#newCase');
 newCaseButton.addEventListener('click', (event) => {
 
    generateCase();
+   const selectedCase = randomCase();
  });
 
 
@@ -226,7 +233,21 @@ newCaseButton.addEventListener('click', (event) => {
 
 
 
+//function start(){
+    //generateCase();
+//}
 
+//function restart(){
+    //generateCase();
+//}
+
+//function getCase(){
+
+//}
+
+//function eliminate(){
+
+    //let murder=getCase();
 
 
 
