@@ -3,20 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="characters/impostor.svg">
     <title>Who Is The Imposter</title>
 
     <link rel="stylesheet" href="./css/style.css"/>
     <script src="./js/app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
 </head>
 <body>
 
 
 
+  <div id="start">
+    <header>
+      <section class="hero">
+        <h1 class="hero-message">
+          <div id="start-text"></div>
+       <div class="title-font">WHO IS THE IMPOSTER ?</div> 
+        <div class="button-list">
+          <button id="start">Start</button>
+        </div>
+      </section>
+      <picture class="promo-art">
+        <img id="start-pic" src="characters/hero1.jpg" height="1000" width="800" alt="a random doodle">
+      </picture>
+    </header>
+  </div>
+  
+
+
+
     
-    <div id="game">
-        <h1 class="title">WHO IS THE IMPOSTER?</h1>
-        <h3 id="caseDescription"></h3>
+    <div class="hidden" id="game">
+
+
+        <header>
+            <section class="hero">
+              <h1 class="hero-message">
+                <div>WHO IS THE</div>
+                <div>IMPOSTER?</div>
+              </h1>
+              <p id="caseDescription"class="under-hero"></p>
+              <div class="button-list">
+                <button class="primary">🔎</button>
+                <button><img id="heart" class="heart" src="characters/twohearts.jpg"></button>
+              </div>
+            </section>
+            <picture class="promo-art">
+              <img src="characters/hero.jpg" height="800" width="800" alt="a random doodle">
+            </picture>
+          </header>
+
         <div class="wrap">
+        
             <div class="box" id="officerBox">
                 <div class="box-top">
                     <img id="officerimg" class="box-image" src="characters/officer.png" alt="The Police Man">
@@ -30,7 +70,7 @@
             </div>
             <div class="box" id="artistBox">
                 <div class="box-top">
-                    <img id="artestimg" class="box-image" src="characters/artest.png" alt="The Artist">
+                    <img id="artistimg" class="box-image" src="characters/artist.png" alt="The Artist">
                     <div class="title-flex">
                         <h3 class="box-title">Artist</h3>
                         <p class="user-follow-info">Reem</p>
@@ -38,7 +78,7 @@
                     <p class="description" id="artistDescription"></p>
                 </div>
                 
-                <button id="artest" class="button">ELIMINATE</button>
+                <button id="artist" class="button">ELIMINATE</button>
                
             </div>
             <div class="box" id="chefBox">
@@ -65,10 +105,66 @@
             </div>
         </div>
         
-        <button class="button" id="newCase">New Case</button>
+        <!-- <button class="button" id="newCase">New Case</button> -->
        
     </div>
     
+<div class="hidden">
+    <header>
+        <section class="hero">
+          <h1 class="hero-message">
+            <div>Hero layout with</div>
+            <div>Open Props</div>
+          </h1>
+          <p class="under-hero">Lorem ipsum dolor sit amet consectetu adipisicing elit. Nemo in doloremque quam, voluptatibus eum voluptatum.</p>
+          <div class="button-list">
+            <button class="primary">Get started</button>
+            <button>Live demo</button>
+          </div>
+        </section>
+        <picture class="promo-art">
+          <img src="characters/hero1.jpg" height="800" width="800" alt="a random doodle">
+        </picture>
+      </header>
+    </div>
+
+
+
+
+
+    <div id="result" class="hidden">
+        <header>
+          <section class="hero">
+            <h1 class="hero-message">
+              <div id="congrats"></div>
+              <!-- <div>IMPOSTER?</div> -->
+            </h1>
+            <div class="button-list">
+              <button id="try-again">Play Again</button>
+            </div>
+          </section>
+          <picture class="promo-art">
+            <img id="result-pic" src="" height="800" width="800" alt="a random doodle">
+          </picture>
+        </header>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,8 +5,14 @@ let eliminateSusName;
 let eliminateSusIndex;
 let counter=0;
 let disableButton;
+let firstSus="";
 let imgNotGuilty;
+let resultImg;
+let eliminateSus="";
+let liveHearts = document.getElementById('heart');
+const game=document.querySelector('#game');
 
+const result=document.querySelector('#result');
 
 // Define the characters array
 const characters = [
@@ -236,59 +242,84 @@ function generateCase() {
 
 
 //generate button
-newCaseButton=document.querySelector('#newCase');
-newCaseButton.addEventListener('click', (event) => {
+// newCaseButton=document.querySelector('#newCase');
+// newCaseButton.addEventListener('click', (event) => {
 
-   generateCase();
+//    generateCase();
   
- });
+//  });
 
 
 
  function getsus(event) {
-    eliminateSus = event.target.id;
-    
-    switch (counter) {
-  case 0:
+    eliminateSus = event.target.id; // Get the clicked suspect's ID (should match their name)
 
+    // Check if the selected case and eliminateSus are valid, then compare correctly
+    if (selectedCase !== "" && characters[selectedCase.murderer].name === eliminateSus) {
+        win(eliminateSus); // If the selected suspect is the murderer
+        return;
+    }
 
-  if (selectedCase !== "" && characters[selectedCase.murderer].name === eliminateSus) {
-    alert("You won!");
-    counter++;
-} else {
-    imgNotGuilty = document.getElementById(`${eliminateSus}img`);
-    imgNotGuilty.src =`characters/crew${eliminateSus}.png`;
-    disableButton = document.getElementById(`${eliminateSus}`);
-    disableButton.classList.remove('button');
-    disableButton.classList.add('buttonRed');
-    disableButton.disabled = true;  
-   disableButton.innerText = "Not guilty"; 
-    counter++;
-}
-break;
-  case 1:
-      if (selectedCase !== "" && characters[selectedCase.murderer].name === eliminateSus) {
-          alert("You won!");
-          counter++;
-      } else {
+    if (counter < 1) {
+        if (counter === 0) {
+            liveHearts.src = 'characters/one heart.jpg'; // Reduce heart to one
+            
+        }
+
+        // Mark the first chosen suspect as not guilty
         imgNotGuilty = document.getElementById(`${eliminateSus}img`);
-        imgNotGuilty.src =`characters/crew${eliminateSus}.png`;
-          disableButton = document.getElementById(`${eliminateSus}`);
-          disableButton.classList.remove('button');
-          disableButton.classList.add('buttonRed');
-          disableButton.innerText = "Not guilty"; 
-          counter++;
-      }
-      break;
+        imgNotGuilty.src = `characters/crew${eliminateSus}.png`;
 
-  case 2:
-     
-      alert("You lost! Try again.");
-      break;
+        disableButton = document.getElementById(eliminateSus);
+        disableButton.classList.remove('button');
+        disableButton.classList.add('buttonRed');
+        disableButton.disabled = true;
+        disableButton.innerText = "Not guilty"; // Change button text
+        counter++;
+    } else {
+        lose(characters[selectedCase.murderer].name); // On second wrong guess, reveal the murderer
+    }
 }
 
 
- }
+
+
+
+function win(eliminateSus) {
+
+
+
+
+    game.classList.add('hidden');
+    result.classList.remove('hidden');
+    document.getElementById('congrats').innerText = `You've defeated\nthe imposter!`;
+  
+    let resultImg = document.getElementById("result-pic");
+    resultImg.src = `characters/winto${eliminateSus}.png`;
+  }
+  
+
+
+
+  function lose(eliminateSus) {
+
+//setting the picture of the sus back
+
+
+//display results
+    game.classList.add('hidden');
+    result.classList.remove('hidden');
+    document.getElementById('congrats').innerText = `The imposter defeated you!\n It was the ${eliminateSus}`;
+  
+    let resultImg = document.getElementById("result-pic");
+    resultImg.src = `characters/imp${eliminateSus}.png`;
+  }
+  
+
+
+
+
+
 
 
  //function eliminate(){
@@ -300,11 +331,66 @@ break;
 //function start(){
     //generateCase();
 //}
+function restart() {
+    // Reset game state variables
+    counter = 0;
+    firstSus = "";
+    eliminateSus = "";
+    selectedCase = "";
+    eliminateSusName = "";
+    eliminateSusIndex = "";
 
-function restart(){
-    eliminateSus="";
-    count=0;
+    // Reset each suspect button
+    characters.forEach(character => {
+        const button = document.getElementById(character.name);
+        button.disabled = false; // Enable button
+        button.classList.remove('buttonRed'); // Remove 'not guilty' style
+        button.classList.add('button'); // Add default button style
+        button.innerText = "Eliminate"; // Reset button text
+    });
+
+    // Reset suspect images to default
+    characters.forEach(character => {
+        const resetPic = document.getElementById(`${character.name}img`);
+        resetPic.src = `characters/${character.name}.png`; // Set to default image
+    });
+
+    // Reset hearts and result images
+    liveHearts.src = 'characters/twohearts.jpg'; // Reset hearts image
+    resultImg = ""; // Clear result image variable
+    imgNotGuilty = ""; // Clear 'not guilty' image variable
+
+    // Generate a new case and hide result section
+    generateCase();
+  
 }
+
+
+
+
+tryAgain=document.querySelector('#try-again');
+tryAgain.addEventListener('click', (event) => {
+
+
+
+   restart();
+   result.classList.add('hidden');
+   game.classList.remove('hidden');
+  
+ });
+
+
+
+ start=document.querySelector('#start');
+start.addEventListener('click', (event) => {
+
+
+   restart();
+   start.classList.add('hidden');
+   game.classList.remove('hidden');
+  
+ });
+
 
 //function getCase(){
 
@@ -404,4 +490,4 @@ function restart(){
 document.querySelector('#officer').addEventListener('click', getsus);
 document.querySelector('#chef').addEventListener('click', getsus);
 document.querySelector('#musician').addEventListener('click', getsus);
-document.querySelector('#artest').addEventListener('click', getsus);
+document.querySelector('#artist').addEventListener('click', getsus);``
