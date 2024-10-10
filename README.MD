@@ -6,15 +6,15 @@ Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, th
 ### Overview
 
 
-![Imposter Investigation](characters/hero.jpg)
-
-**Imposter Investigation** is a thrilling murder mystery game where players act as detectives to identify an imposter among various suspects. 
+**WHO IS THE IMPOSTER?** is murder mystery game where players act as detectives to identify an imposter among various suspects. 
 
 ### Key Features:
 - **Multiple Cases**: Solve different mysteries with recurring characters.
 - **Clue Gathering**: Interact with suspects and analyze evidence.
 - **Two Guesses**: Make two attempts to accuse the imposter.
 - **Fun Gameplay**: Enjoy a straightforward and engaging experience for all ages.
+
+![Imposter Investigation](characters/hero.jpg)
 
 
 
