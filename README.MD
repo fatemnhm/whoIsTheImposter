@@ -5,7 +5,8 @@ Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, th
 
 ### Overview
 
-![Imposter Investigation](whoIsTheImposter/characters/hero.webp)
+![Imposter Investigation](https://github.com/fatemnhm/repository/whoIsTheImposter/characters/hero.webp)
+
 
 
 
