@@ -1,15 +1,15 @@
 ## WHO IS THE IMPOSTER 
 
-Put your detective skills to the test! 🕵️‍♀️
+Keep the commumity safe and put your detective skills to the test! 🕵️‍♀️
 Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, the Musician 🎶, and the Chef 👨‍🍳. Examine clues, use your two chances wisely, and uncover the truth to keep the town safe! 🏙️ Click "Start Game" to begin your thrilling adventure! 🎉
 
 ### Overview
 
+![Imposter Investigation](whoIsTheImposter/characters/hero.webp)
 
 
 
-
-### How to Play WHO IS THE IMPOSTER?
+### How to Play "WHO IS THE IMPOSTER"?
 
 1. **Click "Start"**: Begin the game by clicking the start button.
 2. **Read the Case**: Carefully review the murder mystery and suspect details.
