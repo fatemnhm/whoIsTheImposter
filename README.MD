@@ -10,7 +10,7 @@ Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, th
 
 
 
-### How to Play "WHO IS THE IMPOSTER"?
+### How to Play WHO IS THE IMPOSTER?
 
 1. **Click "Start"**: Begin the game by clicking the start button.
 2. **Read the Case**: Carefully review the murder mystery and suspect details.
