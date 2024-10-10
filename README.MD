@@ -5,8 +5,16 @@ Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, th
 
 ### Overview
 
+
 ![Imposter Investigation](characters/hero.jpg)
 
+**Imposter Investigation** is a thrilling murder mystery game where players act as detectives to identify an imposter among various suspects. 
+
+### Key Features:
+- **Multiple Cases**: Solve different mysteries with recurring characters.
+- **Clue Gathering**: Interact with suspects and analyze evidence.
+- **Two Guesses**: Make two attempts to accuse the imposter.
+- **Fun Gameplay**: Enjoy a straightforward and engaging experience for all ages.
 
 
 
@@ -21,10 +29,14 @@ Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, th
 
 
 ### Technical Aproach 
+Here is overview of technical aspect of the game.
 
+#### Tools 
 * JavaScript
 * HTML
-* CSS 
+* CSS
+* Visual Studio 
+* GitHub 
 
 #### Functionalty Overview
 
@@ -56,14 +68,11 @@ Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, th
 9. **`start` event listener**  
    Starts the game when the player clicks the "Start" button, resetting the game state and hiding the start button.
 
-10. **`clueButton` event listener**  
-    Alerts "hi" (placeholder behavior) and removes the hidden class to show the clues when clicked.
-
-11. **Event listeners for suspects (`officer`, `chef`, `musician`, `artist`)**  
+10. **Event listeners for suspects (`officer`, `chef`, `musician`, `artist`)**  
     Triggers the `getsus` function when a suspect button is clicked.
 
 
-[Game link](https://fatemnhm.github.io/whoIsTheImposter/m)
+[Game link](https://fatemnhm.github.io/whoIsTheImposter/)
 
 ### References
 
