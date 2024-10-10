@@ -19,135 +19,141 @@
     <header>
       <section class="hero">
         <h1 class="hero-message">
-          <div id="start-text"></div>
-       <div class="title-font">WHO IS THE IMPOSTER ?</div> 
-        <div class="button-list">
-          <button id="start">Start</button>
+          <div id="start-text">WHO IS THE IMPOSTER?</div>
+        </h1>
+
+  
+        <p class="under-hero">
+
+          Put your detective skills to the test! 🕵️‍♀️<br>
+          Identify the imposter among four suspects: the Officer 🚓, the Artist 🎨, the Musician 🎶, and the Chef 👨‍🍳.
+          Examine clues, use your two chances wisely, and uncover the truth to keep the town safe! 🏙️ 
+          Click "Start Game" to begin your thrilling adventure! 🎉
+        </p>
+   <div class="button-list">
+          <button id="start-btn">Start</button>
         </div>
       </section>
       <picture class="promo-art">
-        <img id="start-pic" src="characters/hero1.jpg" height="1000" width="800" alt="a random doodle">
+        <img id="start-pic" src="characters/hero.jpg" height="1000" width="800" alt="a random doodle">
+      </picture>
+    </header>
+  </div>
+
+
+
+
+
+  <div class="hidden" id="game">
+    <header>
+      <section class="hero">
+        <h1 class="hero-message">
+          <div>WHO IS THE</div>
+          <div>IMPOSTER?</div>
+        </h1>
+      
+        <p id="caseDescription" class="under-hero"></p>
+
+
+          <div class="button-list">
+          <button id="show-button"class="primary">investigation report 🔎:</button>
+          
+        </div>
+      
+          <p class="under-hero" id="cshow"></p>
+     
+     
+       
+        <div class="button-list">
+      
+          <button><img id="heart" class="heart" src="characters/twohearts.jpg" alt="Two Hearts"></button>
+        </div>
+      </section>
+      <picture class="promo-art">
+        <img id="start-pic" src="characters/hero.jpg" height="1000" width="800" alt="a random doodle">
+      </picture>
+    </header>
+  
+    <div class="wrap">
+      <!-- Officer Box -->
+      <div class="box" id="officerBox">
+        <div class="box-top">
+          <img id="officerimg" class="box-image" src="characters/officer.png" alt="The Police Officer">
+          <div class="title-flex">
+            <h3 class="box-title">Officer</h3>
+            <p class="user-follow-info">Noah</p>
+          </div>
+          <p class="description" id="officerDescription"></p>
+        </div>
+        <button id="officer" class="button">ELIMINATE</button>
+      </div>
+  
+      <!-- Artist Box -->
+      <div class="box" id="artistBox">
+        <div class="box-top">
+          <img id="artistimg" class="box-image" src="characters/artist.png" alt="The Artist">
+          <div class="title-flex">
+            <h3 class="box-title">Artist</h3>
+            <p class="user-follow-info">Reem</p>
+          </div>
+          <p class="description" id="artistDescription"></p>
+        </div>
+        <button id="artist" class="button">ELIMINATE</button>
+      </div>
+  
+      <!-- Chef Box -->
+      <div class="box" id="chefBox">
+        <div class="box-top">
+          <img id="chefimg" class="box-image" src="characters/chef.png" alt="The Chef">
+          <div class="title-flex">
+            <h3 class="box-title">Chef</h3>
+            <p class="user-follow-info">Maryam</p>
+          </div>
+          <p class="description" id="chefDescription"></p>
+        </div>
+        <button id="chef" class="button">ELIMINATE</button>
+      </div>
+  
+      <!-- Musician Box -->
+      <div class="box" id="musicianBox">
+        <div class="box-top">
+          <img id="musicianimg" class="box-image" src="characters/musician.png" alt="The Musician">
+          <div class="title-flex">
+            <h3 class="box-title">Musician</h3>
+            <p class="user-follow-info">Ahmed</p>
+          </div>
+          <p class="description" id="musicianDescription"></p>
+        </div>
+        <button id="musician" class="button">ELIMINATE</button>
+      </div>
+    </div>
+  
+    <!-- <button class="button" id="newCase">New Case</button> -->
+  </div>
+  
+    
+ 
+
+
+
+  <div id="result" class="hidden">
+    <header>
+      <section class="hero">
+        <h1 class="hero-message">
+          <div id="congrats"></div>
+          <p id="con2" class="under-hero"></p>
+          <!-- <div>IMPOSTER?</div> -->
+        </h1>
+        <div class="button-list">
+          <button id="try-again">Play Again</button>
+        </div>
+      </section>
+      <picture class="promo-art">
+        <img id="result-pic" src="" height="800" width="800" alt="A random doodle">
       </picture>
     </header>
   </div>
   
-
-
-
-    
-    <div class="hidden" id="game">
-
-
-        <header>
-            <section class="hero">
-              <h1 class="hero-message">
-                <div>WHO IS THE</div>
-                <div>IMPOSTER?</div>
-              </h1>
-              <p id="caseDescription"class="under-hero"></p>
-              <div class="button-list">
-                <button class="primary">🔎</button>
-                <button><img id="heart" class="heart" src="characters/twohearts.jpg"></button>
-              </div>
-            </section>
-            <picture class="promo-art">
-              <img src="characters/hero.jpg" height="800" width="800" alt="a random doodle">
-            </picture>
-          </header>
-
-        <div class="wrap">
-        
-            <div class="box" id="officerBox">
-                <div class="box-top">
-                    <img id="officerimg" class="box-image" src="characters/officer.png" alt="The Police Man">
-                    <div class="title-flex">
-                        <h3 class="box-title">Officer</h3>
-                        <p class="user-follow-info">Noah</p>
-                    </div>
-                    <p class="description" id="officerDescription"></p>
-                </div>
-                <button id="officer" class="button">ELIMINATE</button>
-            </div>
-            <div class="box" id="artistBox">
-                <div class="box-top">
-                    <img id="artistimg" class="box-image" src="characters/artist.png" alt="The Artist">
-                    <div class="title-flex">
-                        <h3 class="box-title">Artist</h3>
-                        <p class="user-follow-info">Reem</p>
-                    </div>
-                    <p class="description" id="artistDescription"></p>
-                </div>
-                
-                <button id="artist" class="button">ELIMINATE</button>
-               
-            </div>
-            <div class="box" id="chefBox">
-                <div class="box-top">
-                    <img id="chefimg" class="box-image" src="characters/chef.png" alt="The Chef">
-                    <div class="title-flex">
-                        <h3 class="box-title">Chef</h3>
-                        <p class="user-follow-info">Maryam</p>
-                    </div>
-                    <p class="description" id="chefDescription"></p>
-                </div>
-                <button id="chef" class="button">ELIMINATE</button>
-            </div>
-            <div class="box" id="musicianBox">
-                <div class="box-top">
-                    <img id="musicianimg" class="box-image" src="characters/musician.png" alt="The Musician">
-                    <div class="title-flex">
-                        <h3 class="box-title">Musician</h3>
-                        <p class="user-follow-info">Ahmed</p>
-                    </div>
-                    <p class="description" id="musicianDescription"></p>
-                </div>
-                <button id="musician" class="button">ELIMINATE</button>
-            </div>
-        </div>
-        
-        <!-- <button class="button" id="newCase">New Case</button> -->
-       
-    </div>
-    
-<div class="hidden">
-    <header>
-        <section class="hero">
-          <h1 class="hero-message">
-            <div>Hero layout with</div>
-            <div>Open Props</div>
-          </h1>
-          <p class="under-hero">Lorem ipsum dolor sit amet consectetu adipisicing elit. Nemo in doloremque quam, voluptatibus eum voluptatum.</p>
-          <div class="button-list">
-            <button class="primary">Get started</button>
-            <button>Live demo</button>
-          </div>
-        </section>
-        <picture class="promo-art">
-          <img src="characters/hero1.jpg" height="800" width="800" alt="a random doodle">
-        </picture>
-      </header>
-    </div>
-
-
-
-
-
-    <div id="result" class="hidden">
-        <header>
-          <section class="hero">
-            <h1 class="hero-message">
-              <div id="congrats"></div>
-              <!-- <div>IMPOSTER?</div> -->
-            </h1>
-            <div class="button-list">
-              <button id="try-again">Play Again</button>
-            </div>
-          </section>
-          <picture class="promo-art">
-            <img id="result-pic" src="" height="800" width="800" alt="a random doodle">
-          </picture>
-        </header>
-      </div> 
 
 </body>
 </html>

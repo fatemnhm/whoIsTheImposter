@@ -7,6 +7,10 @@
 @import "https://unpkg.com/open-props"; 
 @import "https://unpkg.com/open-props/normalize.min.css"; 
 
+
+
+
+
 body {
   display: flex;
 }
@@ -48,7 +52,12 @@ header {
   display: flex;
   gap: var(--size-3);
 }
-
+.button-list-heart {
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+  
+}
 button {
   background: white;
   color: var(--indigo-8);
@@ -59,7 +68,7 @@ button {
   box-shadow: var(--shadow-2);
 }
 .heart{
-    width: 100%;
+    width: 90px;
     height: auto; 
 }
 
@@ -94,7 +103,7 @@ button.primary:hover {
   }
 .container {
     display: flex; /* Magic starts here, turning your container into a flex container */
-    justify-content: center; /* This centers the child horizontally */
+/* This centers the child horizontally */
     align-items: center; /* And this centers it vertically */
     height: 100vh; /* This will make sure your container is as tall as the entire viewport */
   }
@@ -161,8 +170,9 @@ button.primary:hover {
   
   
   .wrap {
+    background-color:#e8ecdf;
     display: flex;
-    justify: space-between;
+   
     align-items: stretch;
     width: 100%;
     gap: 24px;
